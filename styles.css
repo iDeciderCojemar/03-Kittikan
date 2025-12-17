@@ -1,0 +1,150 @@
+/* -------------------------------------
+   การรีเซ็ตและการตั้งค่าเบื้องต้น
+   ------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* กำหนดตัวแปรสีตามภาพ */
+    --clr-primary-yellow: #F4D04E;
+    --clr-neutral-white: #FFFFFF;
+    --clr-neutral-grey: #6B6B6B;
+    --clr-neutral-black: #111111;
+}
+
+body {
+    font-family: 'Figtree', sans-serif;
+    background-color: var(--clr-primary-yellow); /* สีพื้นหลังสีเหลือง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* -------------------------------------
+   สไตล์ของการ์ด (Card)
+   ------------------------------------- */
+
+.card {
+    background-color: var(--clr-neutral-white);
+    border: 1px solid var(--clr-neutral-black); /* ขอบสีดำ */
+    border-radius: 20px;
+    /* เงาแบบหนาที่ทำให้การ์ดดูมีกรอบ */
+    box-shadow: 8px 8px 0px 0px var(--clr-neutral-black);
+    overflow: hidden;
+    width: 100%;
+    max-width: 380px; /* จำกัดความกว้างของการ์ด */
+}
+
+/* ส่วนภาพ/กราฟิกด้านบน */
+.card-graphic {
+    padding: 20px 20px 0 20px; /* เว้นระยะห่างรอบภาพด้านใน */
+}
+
+.illustration {
+    width: 100%;
+    height: 200px; /* กำหนดความสูงของ Placeholder */
+    background-color: var(--clr-primary-yellow); /* สีพื้นหลังของภาพด้านใน */
+    border-radius: 10px;
+    object-fit: cover;
+    /* *** ในการใช้งานจริง: ควรใส่โค้ด SVG หรือภาพที่แสดงลวดลายจริง *** */
+}
+
+/* ส่วนเนื้อหาข้อความ */
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* แท็ก "Learning" */
+.card-tag {
+    background-color: var(--clr-primary-yellow);
+    color: var(--clr-neutral-black);
+    font-size: 14px;
+    font-weight: 800; /* ตัวหนามาก */
+    padding: 4px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* วันที่เผยแพร่ */
+.card-date {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--clr-neutral-grey);
+    margin-top: -4px; /* ชดเชยระยะห่างจาก tag */
+}
+
+/* ชื่อเรื่อง */
+.card-title {
+    font-size: 24px;
+    font-weight: 800; /* ตัวหนามาก */
+    color: var(--clr-neutral-black);
+    text-decoration: none; /* หากใช้ tag <a> */
+    line-height: 1.2;
+}
+
+/* คำอธิบาย */
+.card-description {
+    font-size: 16px;
+    color: var(--clr-neutral-grey);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* ส่วนผู้เขียน */
+.card-author {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 12px;
+}
+
+/* รูปโปรไฟล์ */
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--clr-neutral-grey); /* Placeholder */
+    object-fit: cover;
+}
+
+/* ชื่อผู้เขียน */
+.author-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--clr-neutral-black);
+}
+
+/* -------------------------------------
+   การปรับสำหรับหน้าจอมือถือ (Mobile Responsiveness)
+   ------------------------------------- */
+@media (max-width: 450px) {
+    .card {
+        max-width: 90%; /* ลดขนาดลงอีกเล็กน้อยสำหรับมือถือ */
+        box-shadow: 6px 6px 0px 0px var(--clr-neutral-black); /* ลดขนาดเงา */
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-graphic {
+        padding: 16px 16px 0 16px;
+    }
+    
+    .card-title {
+        font-size: 20px;
+    }
+    
+    .card-description {
+        font-size: 14px;
+    }
+}
